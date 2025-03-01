@@ -8,15 +8,16 @@ use App\Models\College;
 
 class StudentController extends Controller
 {
-    public function index() {
-        $students = Student::orderBy('name')->pluck('name', 'id')->prepend('All Students', '');
-        if (request('student_id') == null){
+    public function index(){
+        $colleges = College::orderBy('name')->pluck('name', 'id')->prepend('All Colleges', '');
+
+        if (request('college_id') == null) {
             $students = Student::orderBy('name')->get();
-        } else{
-            $students = Student::where('id', request('id'))->get();
+        } else {
+            $students = Student::where('college_id', request('college_id'))->orderBy('name')->get();
         }
 
-        return view('students.index', compact('students', 'students'));
+        return view('students.index', compact('students', 'colleges'));
     }
 
     public function create() {

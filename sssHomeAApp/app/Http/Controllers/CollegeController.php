@@ -8,14 +8,9 @@ use App\Models\College;
 class CollegeController extends Controller
 {
     public function index() {
-        $Colleges = College::orderBy('name')->pluck('name', 'id')->prepend('All Colleges', '');
-        if (request('college_id') == null){
-            $colleges= College::orderBy('name')->get();
-        } else{
-            $colleges = College::where('id', request('id'))->get();
-        }
-
-        return view('colleges.index', compact('colleges', 'Colleges'));
+        $colleges = College::orderBy('name')->get();
+        
+        return view('colleges.index', compact('colleges'));
     }
 
     public function create() {
