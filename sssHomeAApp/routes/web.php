@@ -32,7 +32,7 @@ Route::post('/colleges/{id}', [CollegeController::class, 'editstore'])->name('co
 
 Route::get('/colleges/{id}', [CollegeController::class, 'destroy'])->name('colleges.destroy');
 
-
+//Students Routes
 
 Route::get('/students', [StudentController::class, 'index'])->name('students.index');
 
