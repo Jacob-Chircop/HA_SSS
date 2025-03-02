@@ -1,25 +1,39 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Create College</title>
-</head>
-<body>
-<div>
-    <h2>Create College</h2>
-    <form action="{{ route('colleges.createstore') }}" method="POST">
-        @csrf
-        <div>
-            <label for="name">College Name:</label>
-            <input type="text" id="name" name="name">
+@extends('layouts.main')
 
+@section('content')
 
-        </div>
-        <div>
-            <label for="address">Address:</label>
-            <input type="text" id="address" name="address">
-        </div>
-        <button type="submit">Submit</button>
-    </form>
-</div>
-</body>
-</html>
+<main class="py-5">
+    <div class="card-body">
+        <h2>Create College</h2>
+        <form action="{{ route('colleges.createstore') }}" method="POST">
+            @csrf
+            <div class="form-group row">
+                <label for="name" class="col-md-3 col-form-label">College Name: </label>
+                <div class="col-md-9">
+                    <input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror">
+                    @error('name')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="address" class="col-md-3 col-form-label">Address: </label>
+                <div class="col-md-9">
+                    <input type="text" id="address" name="address" class="form-control @error('address') is-invalid @enderror">
+                    @error('address')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</main>
+
+@endsection
