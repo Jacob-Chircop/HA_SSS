@@ -16,18 +16,8 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="GET" action="{{ route('students.index') }}" class="mb-3">
-                            <div class="input-group">
-                                <label for="filter_college_id" class="mr-2">Filter by College:</label>
-                                <select id="filter_college_id" name="college_id" class="custom-select" onchange="this.form.submit()">
-                                    @foreach($colleges as $id => $name)
-                                        <option value="{{ $id }}" {{ request('college_id') == $id ? 'selected' : '' }}>
-                                            {{ $name }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </form>
+                        @include('students._filter')
+                        @include('students._sort')
 
                         @if (session('message'))
                             <div class="alert alert-success">{{ session('message') }}</div>
