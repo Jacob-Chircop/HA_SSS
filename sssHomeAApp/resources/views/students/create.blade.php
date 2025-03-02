@@ -12,7 +12,7 @@
 <body>
 <div>
     <h2>Add Student</h2>
-    <form action="{{ route('students.store') }}" method="POST">
+    <form action="{{ route('students.createstore') }}" method="POST">
         @csrf
 
         <div>

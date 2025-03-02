@@ -25,7 +25,7 @@ class StudentController extends Controller
         return view('students.create', compact('colleges','colleges'));
     }
 
-    public function store(Request $request) {
+    public function createstore(Request $request) {
         $request->validate([
             'name'=>'required',
             'email' => 'required|email',
@@ -38,8 +38,13 @@ class StudentController extends Controller
         return redirect()->route('students.index')->with('message', 'Student has been added successfully!');
     }
 
+    public function show($id) {
+        $student = Student::where('id', $id)->first();
+        return view('students.show', compact('student'));
+    }
+
     public function edit($id) {
-        $student = Student::findOrFail($id);
+        $student = Student::where('id', $id)->first();
         $colleges = College::orderBy('name')->pluck('name', 'id');
     
         return view('students.edit', compact('student', 'colleges'));

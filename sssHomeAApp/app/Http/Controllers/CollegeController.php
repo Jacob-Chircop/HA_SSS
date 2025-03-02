@@ -17,7 +17,7 @@ class CollegeController extends Controller
         return view('colleges.create');
     }
 
-    public function store(Request $request){
+    public function createstore(Request $request){
         $request->validate([
             'name'=>'required',
             'address'=>'required',
@@ -27,10 +27,15 @@ class CollegeController extends Controller
         return redirect()->route('colleges.index')->with('message', 'College has been added successfully!');
     }
 
+    public function show($id) {
+        $College = College::where('id', $id)->first();
+        return view('colleges.show', compact('College'));
+    }
+
     public function edit($id) {
         $College = College::where('id', $id)->first();
 
-        return view('colleges.edit', compact('College', 'College') , ['id' => College::find($id)]);
+        return view('colleges.edit', compact('College', 'id'));
     }
 
     public function editstore(Request $request, $id){

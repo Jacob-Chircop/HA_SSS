@@ -6,7 +6,7 @@
 <body>
 <div>
     <h2>Create College</h2>
-    <form action="{{ route('colleges.store') }}" method="POST">
+    <form action="{{ route('colleges.createstore') }}" method="POST">
         @csrf
         <div>
             <label for="name">College Name:</label>
