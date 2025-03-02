@@ -13,7 +13,7 @@
 <div class="form-group row">
     <label for="email" class="col-md-3 col-form-label">Email: </label>
     <div class="col-md-9">
-        <input type="email" id="email" name="email" value="{{ $student->email }}" class="form-control @error('email') is-invalid @enderror ">
+        <input type="text" id="email" name="email" value="{{ $student->email }}" class="form-control @error('email') is-invalid @enderror ">
         @error('email')
             <div class="invalid-feedback">
                 {{ $message }}

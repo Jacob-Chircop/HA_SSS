@@ -1,7 +1,7 @@
 <div class="form-group row">
     <label for="name" class="col-md-3 col-form-label">Name: </label>
     <div class="col-md-9">
-        <input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror">
+        <input type="text" id="name" name="name" value="{{old('name')}}" class="form-control @error('name') is-invalid @enderror">
         @error('name')
             <div class="invalid-feedback">
                 {{ $message }}
@@ -13,7 +13,7 @@
 <div class="form-group row">
     <label for="email" class="col-md-3 col-form-label">Email: </label>
     <div class="col-md-9">
-        <input type="email" id="email" name="email" class="form-control @error('email') is-invalid @enderror">
+        <input type="text" id="email" name="email" value="{{old('email')}}" class="form-control @error('email') is-invalid @enderror">
         @error('email')
             <div class="invalid-feedback">
                 {{ $message }}
@@ -25,7 +25,7 @@
 <div class="form-group row">
     <label for="phone" class="col-md-3 col-form-label">Phone: </label>
     <div class="col-md-9">
-        <input type="text" id="phone" name="phone" class="form-control @error('phone') is-invalid @enderror">
+        <input type="text" id="phone" name="phone" value="{{old('phone')}}" class="form-control @error('phone') is-invalid @enderror">
         @error('phone')
             <div class="invalid-feedback">
                 {{ $message }}
@@ -37,7 +37,7 @@
 <div class="form-group row">
     <label for="dob" class="col-md-3 col-form-label">Date of Birth: </label>
     <div class="col-md-9">
-        <input type="date" id="dob" name="dob" class="form-control @error('dob') is-invalid @enderror">
+        <input type="date" id="dob" name="dob" value="{{old('dob')}}" class="form-control @error('dob') is-invalid @enderror">
         @error('dob')
             <div class="invalid-feedback">
                 {{ $message }}

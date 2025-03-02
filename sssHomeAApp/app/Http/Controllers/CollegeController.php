@@ -19,7 +19,7 @@ class CollegeController extends Controller
 
     public function createstore(Request $request){
         $request->validate([
-            'name'=>'required',
+            'name'=>'required|unique:colleges',
             'address'=>'required',
         ]);
 
@@ -40,7 +40,7 @@ class CollegeController extends Controller
 
     public function editstore(Request $request, $id){
         $request->validate([
-            'name'=>'required',
+            'name'=>'required|unique:colleges',
             'address'=>'required',
         ]);
 

@@ -29,7 +29,7 @@ class StudentController extends Controller
     public function createstore(Request $request) {
         $request->validate([
             'name'=>'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:students',
             'phone' => 'required|digitsbetween:8,12',
             'dob' => 'required',
             'college_id' => 'required|exists:colleges,id',
@@ -55,7 +55,7 @@ class StudentController extends Controller
     public function editstore(Request $request, $id){
         $request->validate([
             'name'=>'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:students,email',
             'phone' => 'required|digitsbetween:8,12',
             'dob' => 'required',
             'college_id' => 'required|exists:colleges,id',
