@@ -7,31 +7,7 @@
         <h2>Create College</h2>
         <form action="{{ route('colleges.createstore') }}" method="POST">
             @csrf
-            <div class="form-group row">
-                <label for="name" class="col-md-3 col-form-label">College Name: </label>
-                <div class="col-md-9">
-                    <input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror">
-                    @error('name')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <label for="address" class="col-md-3 col-form-label">Address: </label>
-                <div class="col-md-9">
-                    <input type="text" id="address" name="address" class="form-control @error('address') is-invalid @enderror">
-                    @error('address')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
-            </div>
-
-            <button type="submit">Submit</button>
+            @include('colleges._createForm')
         </form>
     </div>
 </main>
