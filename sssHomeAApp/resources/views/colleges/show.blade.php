@@ -2,28 +2,30 @@
 
 @section('content')
 
-<main class="py-5">
+<main class="py-4">
     <div class="container">
-        <div class="row justify-content-md-center">
+        <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header card-title">
-                        <strong>Show College</strong>
-                    </div>          
+                <div class="card shadow-sm border-0 rounded-4">
+                    <div class="card-header bg-white border-bottom-0">
+                        <h4 class="mb-0 fw-bold">College Details</h4>
+                    </div>
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group row">
-                                    <label for="name" class="col-md-3 col-form-label">College Name:</label>
-                                    <p class="form-control-plaintext text-muted">{{ $College->name }}</p>
-                                </div>
-            
-                                <div class="form-group row">
-                                    <label for="address" class="col-md-3 col-form-label">College Address:</label>
-                                    <p class="form-control-plaintext text-muted">{{ $College->address }}</p>
-                                </div>
+
+                        <div class="mb-3 row">
+                            <label for="name" class="col-md-3 col-form-label fw-semibold">College Name:</label>
+                            <div class="col-md-9">
+                                <p class="form-control-plaintext text-muted">{{ $College->name }}</p>
                             </div>
                         </div>
+
+                        <div class="mb-3 row">
+                            <label for="address" class="col-md-3 col-form-label fw-semibold">College Address:</label>
+                            <div class="col-md-9">
+                                <p class="form-control-plaintext text-muted">{{ $College->address }}</p>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
